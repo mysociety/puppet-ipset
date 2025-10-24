@@ -40,6 +40,7 @@ class ipset (
 ) {
   package { $ipset::packages:
     ensure => $package_ensure,
+    before => [File['/usr/local/bin/ipset_init'], File['/usr/local/bin/ipset_sync']],
   }
 
   # create the config directory
